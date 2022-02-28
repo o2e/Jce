@@ -70,6 +70,34 @@ plugins {
 
 ``@Jce()`` ``@Tars`` ``@JceId()`` ``@TarsId()``
 
-注意看JceStruct里面有 servantName funcName等方法 可以用注解实现填空@Jce(funcName="阿巴巴")
+注意看``JceStruct``里面有 ``servantName`` ``funcName``等方法 可以用注解实现填空``@Jce(funcName="阿巴巴")``
+
+### code
+
+```kotlin
+@Jce
+class LoginPack : JceStruct() {
+    @TarsId(1)
+    var userId: String = ""
+
+    @TarsId(2)
+    var password: String = ""
+
+    @TarsId(id = 3, require = true)
+    var nickname: String = ""
+
+}
+```
+
+```kotlin
+val loginPack = LoginPack()
+
+loginPack.userId = "88888"
+loginPack.nickname = "飞翔的企鹅"
+
+val encodeJce = loginPack.encodeJce() // == toByteArray()
+
+val decodeJce = encodeJce.decodeJce<LoginPack>()
+```
 
 @飞翔的企鹅 小小企鹅可可爱爱吸洛洛
