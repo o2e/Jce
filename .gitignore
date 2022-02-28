@@ -1,0 +1,6 @@
+/JceLib/build/
+/JcePlugin/build/
+/build/
+
+/.gradle/
+/.idea/

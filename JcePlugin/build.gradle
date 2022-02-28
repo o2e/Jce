@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'maven-publish'
+    id 'java-gradle-plugin'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+
+dependencies {
+    compileOnly gradleApi()
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation("com.android.tools.build:gradle:7.1.2")
+
+    implementation("org.ow2.asm:asm-commons:9.2")
+    implementation("org.ow2.asm:asm-tree:9.2")
+    implementation("org.ow2.asm:asm-util:9.2")
+}
+
+gradlePlugin {
+    plugins {
+        myPlugins {
+            id = 'taf-jce'
+            implementationClass = 'com.qq.taf.jce.plugin.BasePlugin'
+        }
+    }
+}
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId "taf-jce"
+            artifactId "taf-jce.gradle.plugin"
+            version "1.0.1"
+            from components.java
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}
