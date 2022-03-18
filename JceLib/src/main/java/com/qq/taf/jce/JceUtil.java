@@ -355,7 +355,7 @@ public final class JceUtil {
     }
 
     public static byte[] getBufArray(ByteBuffer buffer) {
-        byte[] bytes = new byte[buffer.position()];
+        byte[] bytes = new byte[buffer.remaining()];
         System.arraycopy(buffer.array(), 0, bytes, 0, bytes.length);
         return bytes;
     }
