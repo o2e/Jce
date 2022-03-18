@@ -10,7 +10,7 @@ version '1.0-SNAPSHOT'
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    implementation("io.netty:netty-buffer:4.1.72.Final")
+    api("io.netty:netty-buffer:4.1.72.Final")
 }
 
 publishing {

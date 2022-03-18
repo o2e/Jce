@@ -352,7 +352,7 @@ public class JceOutputStream {
         } else if (o instanceof Collection) {
             write((Collection<?>) o, tag);
         } else {
-            throw new JceDecodeException("Unknown field type");
+            throw new JceDecodeException("Unknown field type" + o);
         }
     }
 
