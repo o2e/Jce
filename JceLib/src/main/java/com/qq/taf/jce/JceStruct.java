@@ -21,32 +21,33 @@ import org.jetbrains.annotations.NotNull;
 import java.nio.charset.Charset;
 
 
-public class JceStruct {
+public interface JceStruct {
 
-    protected static final byte BYTE = 0;
-    protected static final byte SHORT = 1;
-    protected static final byte INT = 2;
-    protected static final byte LONG = 3;
-    protected static final byte FLOAT = 4;
-    protected static final byte DOUBLE = 5;
-    protected static final byte STRING1 = 6;
-    protected static final byte STRING4 = 7;
-    protected static final byte MAP = 8;
-    protected static final byte LIST = 9;
-    protected static final byte STRUCT_BEGIN = 10;
-    protected static final byte STRUCT_END = 11;
-    protected static final byte ZERO_TAG = 12;
-    protected static final byte SIMPLE_LIST = 13;
+    static final byte BYTE = 0;
+    static final byte SHORT = 1;
+    static final byte INT = 2;
+    static final byte LONG = 3;
+    static final byte FLOAT = 4;
+    static final byte DOUBLE = 5;
+    static final byte STRING1 = 6;
+    static final byte STRING4 = 7;
+    static final byte MAP = 8;
+    static final byte LIST = 9;
+    static final byte STRUCT_BEGIN = 10;
+    static final byte STRUCT_END = 11;
+    static final byte ZERO_TAG = 12;
+    static final byte SIMPLE_LIST = 13;
 
-    protected static final int MAX_STRING_LENGTH = 100 * 1024 * 1024;
+    static final int MAX_STRING_LENGTH = 100 * 1024 * 1024;
 
-    public void writeTo(JceOutputStream output) {
+    default void writeTo(JceOutputStream output) {
+
     }
 
-    public void readFrom(JceInputStream input) {
+    default void readFrom(JceInputStream input) {
     }
 
-    public void readFrom(byte[] bytes) {
+    default void readFrom(byte[] bytes) {
         readFrom(new JceInputStream(bytes));
     }
 
@@ -56,12 +57,12 @@ public class JceStruct {
 //    public void displaySimple(StringBuilder sb, int level) {
 //    }
 
-    public JceStruct newInit() {
+    default JceStruct newInit() {
         throw new RuntimeException("newInit not implement");
     }
 
-    public void recycle() {
-//        throw new RuntimeException("newInit not implement");
+    default void recycle() {
+        throw new RuntimeException("newInit not implement");
     }
 //
 //    public boolean containField(String name) {
@@ -73,15 +74,15 @@ public class JceStruct {
 //    }
 //
 //    public void setFieldByName(String name, Object value) {
-//    }
+//    } 
 
-    public byte[] toByteArray() {
+    default byte[] toByteArray() {
         JceOutputStream os = new JceOutputStream();
         writeTo(os);
         return os.toByteArray();
     }
 
-    public byte[] toByteArray(Charset encoding) {
+    default byte[] toByteArray(Charset encoding) {
         JceOutputStream os = new JceOutputStream();
         os.setServerEncoding(encoding);
         writeTo(os);
@@ -104,22 +105,22 @@ public class JceStruct {
 //    }
 
     @NotNull
-    public String servantName() {
+    default String servantName() {
         throw new RuntimeException("servantName not implement, Please @Tars(servantName = yourName)");
     }
 
     @NotNull
-    public String funcName() {
+    default String funcName() {
         throw new RuntimeException("funcName not implement, Please @Tars(funcName = yourName)");
     }
 
     @NotNull
-    public String reqName() {
+    default String reqName() {
         throw new RuntimeException("reqName not implement, Please @Tars(reqName = yourName)");
     }
 
     @NotNull
-    public String respName() {
+    default String respName() {
         throw new RuntimeException("respName not implement, Please @Tars(respName = yourName)");
     }
 }

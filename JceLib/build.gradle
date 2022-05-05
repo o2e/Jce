@@ -8,6 +8,12 @@ group 'org.example'
 version '1.0-SNAPSHOT'
 
 
+repositories {
+    mavenCentral()
+    google()
+    maven { url = uri("https://maven.aliyun.com/repository/public") }
+}
+
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     api("io.netty:netty-buffer:4.1.72.Final")

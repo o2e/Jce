@@ -112,9 +112,11 @@ class TarsPrecompile(
             args = arrayOf("L$NAME_TARS_IN;")
 
             code {
-                loadObject(0)
-                loadObject(1)
-                invokeSpecial(fuller.superName, name!!, "(${args[0]})V")
+                if (fuller.superName != "java/lang/Object") {
+                    loadObject(0)
+                    loadObject(1)
+                    invokeSpecial(fuller.superName, name!!, "(${args[0]})V")
+                }
                 fields.forEach { (tag, field) ->
                     if (field.isEnum) {
                         val nextLabel = Label()
@@ -277,10 +279,11 @@ class TarsPrecompile(
             // ret = "V" default
 
             code {
-                loadObject(0)
-                loadObject(1)
-                invokeSpecial(fuller.superName, name!!, "(${args[0]})V")
-
+                if (fuller.superName != "java/lang/Object") {
+                    loadObject(0)
+                    loadObject(1)
+                    invokeSpecial(fuller.superName, name!!, "(${args[0]})V")
+                }
                 var startLabel = Label()
                 var nextLabel = Label()
                 fields.forEach { (tag, field) ->
