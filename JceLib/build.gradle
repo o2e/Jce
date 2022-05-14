@@ -16,16 +16,21 @@ repositories {
 
 dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
-    api("io.netty:netty-buffer:4.1.72.Final")
+    api('io.netty:netty-buffer:4.1.76.Final')
 }
-
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
 publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId "com.qq.taf"
             artifactId "jce"
             version "1.0.1"
-            from components.java
+            afterEvaluate {
+                from components.java
+            }
         }
     }
 

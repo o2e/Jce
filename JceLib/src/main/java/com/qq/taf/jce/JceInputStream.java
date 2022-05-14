@@ -205,7 +205,7 @@ public class JceInputStream {
                     c = bs.readByte();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -228,7 +228,7 @@ public class JceInputStream {
                     n = bs.readShort();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -254,7 +254,7 @@ public class JceInputStream {
                     n = bs.readInt();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -283,7 +283,7 @@ public class JceInputStream {
                     n = bs.readLong();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -303,7 +303,7 @@ public class JceInputStream {
                     n = bs.readFloat();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -326,7 +326,7 @@ public class JceInputStream {
                     n = bs.readDouble();
                     break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -358,7 +358,7 @@ public class JceInputStream {
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -390,7 +390,7 @@ public class JceInputStream {
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -424,7 +424,7 @@ public class JceInputStream {
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -453,7 +453,7 @@ public class JceInputStream {
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -491,7 +491,7 @@ public class JceInputStream {
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -558,20 +558,20 @@ public class JceInputStream {
                                     skipToStructEnd();
                                     lr.add(struct);
                                 } catch (Exception e) {
-                                    throw new JceDecodeException("type mismatch." + e);
+                                    throw new JceDecodeException("type mismatch. tag:"+tag + e);
                                 }
                                 break;
                             case JceStruct.ZERO_TAG:
                                 lr.add(new Integer(0));
                                 break;
                             default:
-                                throw new JceDecodeException("type mismatch.");
+                                throw new JceDecodeException("type mismatch. tag:"+tag);
                         }
                     }
                 }
                 break;
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -594,7 +594,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -631,7 +631,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -654,7 +654,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -677,7 +677,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -700,7 +700,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -723,7 +723,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -746,7 +746,7 @@ public class JceInputStream {
                     break;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -786,7 +786,7 @@ public class JceInputStream {
                     return lr;
                 }
                 default:
-                    throw new JceDecodeException("type mismatch.");
+                    throw new JceDecodeException("type mismatch. tag:"+tag);
             }
         } else if (isRequire) {
             throw new JceDecodeException("require field not exist.");
@@ -805,7 +805,7 @@ public class JceInputStream {
 
             HeadData hd = new HeadData();
             readHead(hd);
-            if (hd.type != JceStruct.STRUCT_BEGIN) throw new JceDecodeException("type mismatch.");
+            if (hd.type != JceStruct.STRUCT_BEGIN) throw new JceDecodeException("type mismatch. tag:"+tag);
             ref.readFrom(this);
             skipToStructEnd();
         } else if (isRequire) {
@@ -829,7 +829,7 @@ public class JceInputStream {
 
             HeadData hd = new HeadData();
             readHead(hd);
-            if (hd.type != JceStruct.STRUCT_BEGIN) throw new JceDecodeException("type mismatch.");
+            if (hd.type != JceStruct.STRUCT_BEGIN) throw new JceDecodeException("type mismatch. tag:"+tag);
             ref.readFrom(this);
             skipToStructEnd();
         } else if (isRequire) {
